@@ -1,5 +1,5 @@
 import atomForConfig from './atomForConfig'
-import { DISMISS_START_CARD_DATE_KEY } from '@/constants'
+import { DISMISS_START_CARD_DATE_KEY, defaultFontSizeConfig } from '@/constants'
 import { idDictionaryMap } from '@/resources/dictionary'
 import { correctSoundResources, keySoundResources, wrongSoundResources } from '@/resources/soundResource'
 import type {
@@ -57,6 +57,9 @@ export const pronunciationConfigAtom = atomForConfig('pronunciation', {
   transVolume: 1,
   rate: 1,
 })
+
+export const fontSizeConfigAtom = atomForConfig('fontsize', defaultFontSizeConfig)
+
 export const pronunciationIsOpenAtom = atom((get) => get(pronunciationConfigAtom).isOpen)
 
 export const pronunciationIsTransReadAtom = atom((get) => get(pronunciationConfigAtom).isTransRead)
@@ -92,7 +95,7 @@ export const infoPanelStateAtom = atom<InfoPanelState>({
 })
 
 export const wordDictationConfigAtom = atomForConfig('wordDictationConfig', {
-  isOpen: true,
+  isOpen: false,
   type: 'hideAll' as WordDictationType,
   openBy: 'auto' as WordDictationOpenBy,
 })
